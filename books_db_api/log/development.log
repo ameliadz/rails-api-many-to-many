@@ -149,3 +149,8 @@ Migrating to CreateJoinTableAuthorsBooks (20190528175007)
   ↳ db/seeds.rb:16
   [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
   ↳ db/seeds.rb:16
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuthor Load (1.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "authors_books" ON "authors"."id" = "authors_books"."author_id" WHERE "authors_books"."book_id" = $1[0m  [["book_id", 1]]
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" ORDER BY "books"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" ORDER BY "authors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "authors_books" ON "books"."id" = "authors_books"."book_id" WHERE "authors_books"."author_id" = $1[0m  [["author_id", 1]]
