@@ -1,0 +1,1519 @@
+  [1m[35m (695.1ms)[0m  [1m[35mCREATE DATABASE "movies_api_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (433.6ms)[0m  [1m[35mCREATE DATABASE "movies_api_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (58.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (50.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6855664872665726250)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateActors (20190528192528)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (48.4ms)[0m  [1m[35mCREATE TABLE "actors" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190528192528_create_actors.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190528192528"]]
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateMovies (20190528192534)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE "movies" ("id" bigserial primary key, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190528192534_create_movies.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190528192534"]]
+  ↳ bin/rails:9
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateJoinTableActorsMovies (20190528192549)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "actors_movies" ("actor_id" bigint NOT NULL, "movie_id" bigint NOT NULL)[0m
+  ↳ db/migrate/20190528192549_create_join_table_actors_movies.rb:3
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_actors_movies_on_actor_id_and_movie_id" ON "actors_movies"  ("actor_id", "movie_id")[0m
+  ↳ db/migrate/20190528192549_create_join_table_actors_movies.rb:3
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE  INDEX  "index_actors_movies_on_movie_id_and_actor_id" ON "actors_movies"  ("movie_id", "actor_id")[0m
+  ↳ db/migrate/20190528192549_create_join_table_actors_movies.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190528192549"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-28 19:26:12.138942"], ["updated_at", "2019-05-28 19:26:12.138942"]]
+  ↳ bin/rails:9
+  [1m[35m (41.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6855664872665726250)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mMovie Create (57.9ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Deadpool"], ["created_at", "2019-05-28 19:33:59.462044"], ["updated_at", "2019-05-28 19:33:59.462044"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Spiderman"], ["created_at", "2019-05-28 19:33:59.526616"], ["updated_at", "2019-05-28 19:33:59.526616"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:3
+  [1m[36mMovie Create (0.6ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Deadpool"], ["created_at", "2019-05-28 19:33:59.531987"], ["updated_at", "2019-05-28 19:33:59.531987"]]
+  ↳ db/seeds.rb:3
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Another movie"], ["created_at", "2019-05-28 19:33:59.538582"], ["updated_at", "2019-05-28 19:33:59.538582"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:5
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Got bored of this"], ["created_at", "2019-05-28 19:33:59.544258"], ["updated_at", "2019-05-28 19:33:59.544258"]]
+  ↳ db/seeds.rb:5
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Six"], ["created_at", "2019-05-28 19:33:59.549690"], ["updated_at", "2019-05-28 19:33:59.549690"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mActor Create (13.3ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Stan Lee"], ["created_at", "2019-05-28 19:33:59.580396"], ["updated_at", "2019-05-28 19:33:59.580396"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mActor Create (0.5ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Super Cool Actor"], ["created_at", "2019-05-28 19:33:59.598972"], ["updated_at", "2019-05-28 19:33:59.598972"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mActor Create (0.5ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Sorta Alright Actor"], ["created_at", "2019-05-28 19:33:59.604317"], ["updated_at", "2019-05-28 19:33:59.604317"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mActor Create (0.6ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ryan Reynolds"], ["created_at", "2019-05-28 19:33:59.609854"], ["updated_at", "2019-05-28 19:33:59.609854"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mActor::HABTM_Movies Create (44.1ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 1], ["movie_id", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mActor::HABTM_Movies Create (0.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 1], ["movie_id", 2]]
+  ↳ db/seeds.rb:13
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mActor::HABTM_Movies Create (1.0ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 2], ["movie_id", 3]]
+  ↳ db/seeds.rb:14
+  [1m[36mActor::HABTM_Movies Create (0.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 2], ["movie_id", 4]]
+  ↳ db/seeds.rb:14
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mActor::HABTM_Movies Create (0.4ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 3], ["movie_id", 5]]
+  ↳ db/seeds.rb:15
+  [1m[36mActor::HABTM_Movies Create (0.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 3], ["movie_id", 6]]
+  ↳ db/seeds.rb:15
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mActor::HABTM_Movies Create (0.6ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 4], ["movie_id", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mActor::HABTM_Movies Create (0.4ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 4], ["movie_id", 3]]
+  ↳ db/seeds.rb:16
+  [1m[36mActor::HABTM_Movies Create (0.4ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 4], ["movie_id", 6]]
+  ↳ db/seeds.rb:16
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[36mActor Load (0.4ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" ORDER BY "actors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2019-05-28 15:40:51 -0400
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/student_ga124/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/student_ga124/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/student_ga124/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (6.8ms)
+Completed 200 OK in 32ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2019-05-28 15:40:52 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/movies" for ::1 at 2019-05-28 15:41:34 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/movies"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/actors/2/movies" for ::1 at 2019-05-28 15:41:49 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/actors/2/movies"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/actors/2/movies" for ::1 at 2019-05-28 15:42:05 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/actors/2/movies"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/movies" for ::1 at 2019-05-28 15:42:10 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/movies"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/movies" for ::1 at 2019-05-28 15:42:35 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/movies"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/movies" for ::1 at 2019-05-28 15:43:03 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/movies"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/actors/2/movies" for ::1 at 2019-05-28 15:43:21 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/actors/2/movies"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/actors/2/" for ::1 at 2019-05-28 15:43:24 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/actors/2"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2019-05-28 15:44:08 -0400
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/student_ga124/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/student_ga124/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/student_ga124/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (8.3ms)
+Completed 200 OK in 27ms (Views: 22.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-05-28 15:45:17 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/student_ga124/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/student_ga124/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (2.2ms)
+Completed 200 OK in 7ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/actors/2/movies" for ::1 at 2019-05-28 15:45:26 -0400
+Processing by MoviesController#index as HTML
+  Parameters: {"actor_id"=>"2"}
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/movies_controller.rb:4
+Completed 200 OK in 51ms (Views: 10.0ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/movies/" for ::1 at 2019-05-28 15:45:40 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/movies"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/movies/" for ::1 at 2019-05-28 15:45:56 -0400
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/movies_controller.rb:4
+Completed 200 OK in 23ms (Views: 5.6ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/actors/2/movies" for ::1 at 2019-05-28 15:48:14 -0400
+Processing by MoviesController#index as HTML
+  Parameters: {"actor_id"=>"2"}
+  [1m[36mActor Load (0.5ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:3
+  [1m[36mMovie Load (1.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1[0m  [["actor_id", 2]]
+  ↳ app/controllers/movies_controller.rb:5
+Completed 200 OK in 102ms (Views: 33.6ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/actors/1/movies" for ::1 at 2019-05-28 15:48:21 -0400
+Processing by MoviesController#index as HTML
+  Parameters: {"actor_id"=>"1"}
+  [1m[36mActor Load (0.6ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:3
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1[0m  [["actor_id", 1]]
+  ↳ app/controllers/movies_controller.rb:5
+Completed 200 OK in 6ms (Views: 2.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/actors/4/movies" for ::1 at 2019-05-28 15:48:24 -0400
+Processing by MoviesController#index as HTML
+  Parameters: {"actor_id"=>"4"}
+  [1m[36mActor Load (0.8ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:3
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1[0m  [["actor_id", 4]]
+  ↳ app/controllers/movies_controller.rb:5
+Completed 200 OK in 7ms (Views: 3.3ms | ActiveRecord: 1.6ms)
+
+
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (8278.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "movies_api_development"[0m
+  ↳ bin/rails:9
+Started GET "/actors/4/movies" for ::1 at 2019-05-28 15:49:38 -0400
+Processing by MoviesController#index as HTML
+  Parameters: {"actor_id"=>"4"}
+  [1m[36mActor Load (0.7ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:3
+  [1m[36mMovie Load (0.8ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1[0m  [["actor_id", 4]]
+  ↳ app/controllers/movies_controller.rb:5
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 1.5ms)
+
+
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (332.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "movies_api_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (258.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "movies_api_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (555.6ms)[0m  [1m[35mCREATE DATABASE "movies_api_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (457.8ms)[0m  [1m[35mCREATE DATABASE "movies_api_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.8ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "actors" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (17.2ms)[0m  [1m[35mCREATE TABLE "actors" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "actors_movies" CASCADE[0m
+  ↳ db/schema.rb:24
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "actors_movies" ("actor_id" bigint NOT NULL, "movie_id" bigint NOT NULL)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE  INDEX  "index_actors_movies_on_actor_id_and_movie_id" ON "actors_movies"  ("actor_id", "movie_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE  INDEX  "index_actors_movies_on_movie_id_and_actor_id" ON "actors_movies"  ("movie_id", "actor_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "movies" CASCADE[0m
+  ↳ db/schema.rb:31
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "movies" ("id" bigserial primary key, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:31
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190528192549)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190528192534),
+(20190528192528);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-28 19:50:01.314300"], ["updated_at", "2019-05-28 19:50:01.314300"]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "actors" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (21.7ms)[0m  [1m[35mCREATE TABLE "actors" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "actors_movies" CASCADE[0m
+  ↳ db/schema.rb:24
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "actors_movies" ("actor_id" bigint NOT NULL, "movie_id" bigint NOT NULL)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE  INDEX  "index_actors_movies_on_actor_id_and_movie_id" ON "actors_movies"  ("actor_id", "movie_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE  INDEX  "index_actors_movies_on_movie_id_and_actor_id" ON "actors_movies"  ("movie_id", "actor_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "movies" CASCADE[0m
+  ↳ db/schema.rb:31
+  [1m[35m (19.2ms)[0m  [1m[35mCREATE TABLE "movies" ("id" bigserial primary key, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:31
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190528192549)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (6.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190528192534),
+(20190528192528);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-28 19:50:01.457915"], ["updated_at", "2019-05-28 19:50:01.457915"]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.9ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-05-28 19:50:01.465892"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mMovie Create (1.1ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Deadpool"], ["created_at", "2019-05-28 19:50:01.533480"], ["updated_at", "2019-05-28 19:50:01.533480"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (40.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Spiderman"], ["created_at", "2019-05-28 19:50:01.577563"], ["updated_at", "2019-05-28 19:50:01.577563"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:3
+  [1m[36mMovie Create (0.7ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Detective Pikachu"], ["created_at", "2019-05-28 19:50:01.582970"], ["updated_at", "2019-05-28 19:50:01.582970"]]
+  ↳ db/seeds.rb:3
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Another movie"], ["created_at", "2019-05-28 19:50:01.588986"], ["updated_at", "2019-05-28 19:50:01.588986"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:5
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Got bored of this"], ["created_at", "2019-05-28 19:50:01.595120"], ["updated_at", "2019-05-28 19:50:01.595120"]]
+  ↳ db/seeds.rb:5
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Six"], ["created_at", "2019-05-28 19:50:01.600808"], ["updated_at", "2019-05-28 19:50:01.600808"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mActor Create (0.7ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Stan Lee"], ["created_at", "2019-05-28 19:50:01.633291"], ["updated_at", "2019-05-28 19:50:01.633291"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mActor Create (0.5ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Super Cool Actor"], ["created_at", "2019-05-28 19:50:01.641017"], ["updated_at", "2019-05-28 19:50:01.641017"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mActor Create (0.5ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Sorta Alright Actor"], ["created_at", "2019-05-28 19:50:01.646503"], ["updated_at", "2019-05-28 19:50:01.646503"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mActor Create (0.5ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ryan Reynolds"], ["created_at", "2019-05-28 19:50:01.651869"], ["updated_at", "2019-05-28 19:50:01.651869"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mActor::HABTM_Movies Create (1.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 1], ["movie_id", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mActor::HABTM_Movies Create (0.4ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 1], ["movie_id", 2]]
+  ↳ db/seeds.rb:13
+  [1m[35m (22.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mActor::HABTM_Movies Create (0.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 2], ["movie_id", 3]]
+  ↳ db/seeds.rb:14
+  [1m[36mActor::HABTM_Movies Create (0.4ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 2], ["movie_id", 4]]
+  ↳ db/seeds.rb:14
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mActor::HABTM_Movies Create (0.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 3], ["movie_id", 5]]
+  ↳ db/seeds.rb:15
+  [1m[36mActor::HABTM_Movies Create (0.4ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 3], ["movie_id", 6]]
+  ↳ db/seeds.rb:15
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mActor::HABTM_Movies Create (0.6ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 4], ["movie_id", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mActor::HABTM_Movies Create (0.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 4], ["movie_id", 3]]
+  ↳ db/seeds.rb:16
+  [1m[36mActor::HABTM_Movies Create (0.8ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 4], ["movie_id", 6]]
+  ↳ db/seeds.rb:16
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+Started GET "/actors/4/movies" for ::1 at 2019-05-28 15:50:16 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/student_ga124/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MoviesController#index as HTML
+  Parameters: {"actor_id"=>"4"}
+  [1m[36mActor Load (0.7ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:3
+  [1m[36mMovie Load (1.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1[0m  [["actor_id", 4]]
+  ↳ app/controllers/movies_controller.rb:5
+Completed 200 OK in 89ms (Views: 28.9ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/actors/4/movies" for ::1 at 2019-05-28 15:53:53 -0400
+  
+SyntaxError (/Users/student_ga124/Desktop/GeneralAssembly/sei/unit04/lessons/rails-api-many-to-many/movies_api/app/controllers/movies_controller.rb:16: syntax error, unexpected tSYMBEG, expecting do or '{' or '('
+... render json: @movie, include :actors, status: :ok
+...                              ^):
+  
+app/controllers/movies_controller.rb:16: syntax error, unexpected tSYMBEG, expecting do or '{' or '('
+Started GET "/actors/4/movies" for ::1 at 2019-05-28 15:54:18 -0400
+Processing by MoviesController#index as HTML
+  Parameters: {"actor_id"=>"4"}
+  [1m[36mActor Load (0.4ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:37
+  [1m[36mMovie Load (0.8ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1[0m  [["actor_id", 4]]
+  ↳ app/controllers/movies_controller.rb:8
+Completed 200 OK in 57ms (Views: 8.6ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/actors/4/movies" for ::1 at 2019-05-28 15:54:44 -0400
+Processing by MoviesController#index as HTML
+  Parameters: {"actor_id"=>"4"}
+  [1m[36mActor Load (0.3ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:37
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1[0m  [["actor_id", 4]]
+  ↳ app/controllers/movies_controller.rb:8
+Completed 200 OK in 31ms (Views: 6.6ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/actors/4/movies/1" for ::1 at 2019-05-28 15:55:04 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"actor_id"=>"4", "id"=>"1"}
+  [1m[36mActor Load (1.0ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:37
+Completed 404 Not Found in 5ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Movie without an ID):
+  
+app/controllers/movies_controller.rb:41:in `get_movie'
+Started GET "/actors/4/movies/1" for ::1 at 2019-05-28 15:55:34 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"actor_id"=>"4", "id"=>"1"}
+  [1m[36mActor Load (0.6ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:37
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:41
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 6.7ms)
+
+
+  
+NoMethodError (undefined method `movies' for #<Class:0x00007fd2cd352968>):
+  
+app/controllers/movies_controller.rb:14:in `show'
+Started GET "/actors/4/movies/1" for ::1 at 2019-05-28 15:55:54 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"actor_id"=>"4", "id"=>"1"}
+  [1m[36mActor Load (0.4ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:37
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:41
+  [1m[36mMovie Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1 AND "movies"."id" = $2 LIMIT $3[0m  [["actor_id", 4], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:15
+  [1m[36mActor Load (0.6ms)[0m  [1m[34mSELECT "actors".* FROM "actors" INNER JOIN "actors_movies" ON "actors"."id" = "actors_movies"."actor_id" WHERE "actors_movies"."movie_id" = $1[0m  [["movie_id", 1]]
+  ↳ app/controllers/movies_controller.rb:16
+Completed 200 OK in 77ms (Views: 3.9ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/actors/4/movies/2" for ::1 at 2019-05-28 15:55:59 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"actor_id"=>"4", "id"=>"2"}
+  [1m[36mActor Load (0.4ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:37
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:41
+  [1m[36mMovie Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1 AND "movies"."id" = $2 LIMIT $3[0m  [["actor_id", 4], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:15
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/actors/4/movies/2" for ::1 at 2019-05-28 15:56:11 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"actor_id"=>"4", "id"=>"2"}
+  [1m[36mActor Load (0.3ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:37
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:41
+  [1m[36mMovie Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1 AND "movies"."id" = $2 LIMIT $3[0m  [["actor_id", 4], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:15
+Completed 200 OK in 39ms (Views: 0.3ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/actors/4/movies" for ::1 at 2019-05-28 16:03:16 -0400
+Error occurred while parsing request parameters.
+Contents:
+
+{
+	"title": "Hamlet",
+}
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+	"title": "Hamlet",
+}'):
+  
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.0.7) lib/rack/request.rb:59:in `fetch'
+rack (2.0.7) lib/rack/request.rb:59:in `fetch_header'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/actors/4/movies" for ::1 at 2019-05-28 16:03:30 -0400
+Processing by MoviesController#create as */*
+  Parameters: {"title"=>"Hamlet", "actor_id"=>"4", "movie"=>{"title"=>"Hamlet"}}
+  [1m[36mActor Load (0.5ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:48
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:22
+  [1m[36mMovie Create (0.8ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Hamlet"], ["created_at", "2019-05-28 20:03:30.136960"], ["updated_at", "2019-05-28 20:03:30.136960"]]
+  ↳ app/controllers/movies_controller.rb:22
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:22
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:23
+  [1m[36mActor::HABTM_Movies Create (0.8ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 4], ["movie_id", 7]]
+  ↳ app/controllers/movies_controller.rb:23
+  [1m[35m (40.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:23
+Completed 201 Created in 97ms (Views: 0.4ms | ActiveRecord: 61.4ms)
+
+
+Started GET "/actors/4/movies/" for ::1 at 2019-05-28 16:03:38 -0400
+Processing by MoviesController#index as HTML
+  Parameters: {"actor_id"=>"4"}
+  [1m[36mActor Load (0.5ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:48
+  [1m[36mMovie Load (0.9ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1[0m  [["actor_id", 4]]
+  ↳ app/controllers/movies_controller.rb:8
+Completed 200 OK in 8ms (Views: 4.7ms | ActiveRecord: 1.4ms)
+
+
+Started PUT "/actors/4/movies/7" for ::1 at 2019-05-28 16:04:50 -0400
+Processing by MoviesController#update as */*
+  Parameters: {"title"=>"Hamlet (Not Really)", "actor_id"=>"4", "id"=>"7", "movie"=>{"title"=>"Hamlet (Not Really)"}}
+  [1m[36mActor Load (0.5ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:48
+  [1m[36mMovie Load (7.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:52
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "title" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["title", "Hamlet (Not Really)"], ["updated_at", "2019-05-28 20:04:50.240976"], ["id", 1]]
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[35m (41.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[36mMovie Update (0.5ms)[0m  [1m[33mUPDATE "movies" SET "title" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["title", "Hamlet (Not Really)"], ["updated_at", "2019-05-28 20:04:50.286091"], ["id", 2]]
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[36mMovie Update (0.5ms)[0m  [1m[33mUPDATE "movies" SET "title" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["title", "Hamlet (Not Really)"], ["updated_at", "2019-05-28 20:04:50.292134"], ["id", 3]]
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "title" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["title", "Hamlet (Not Really)"], ["updated_at", "2019-05-28 20:04:50.298785"], ["id", 4]]
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "title" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["title", "Hamlet (Not Really)"], ["updated_at", "2019-05-28 20:04:50.303709"], ["id", 5]]
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[36mMovie Update (0.5ms)[0m  [1m[33mUPDATE "movies" SET "title" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["title", "Hamlet (Not Really)"], ["updated_at", "2019-05-28 20:04:50.308831"], ["id", 6]]
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[36mMovie Update (0.6ms)[0m  [1m[33mUPDATE "movies" SET "title" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["title", "Hamlet (Not Really)"], ["updated_at", "2019-05-28 20:04:50.317238"], ["id", 7]]
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:31
+Completed 500 Internal Server Error in 104ms (ActiveRecord: 73.1ms)
+
+
+  
+NoMethodError (undefined method `update' for #<Array:0x00007fd2cea2ac08>):
+  
+app/controllers/movies_controller.rb:32:in `update'
+Started PUT "/actors/4/movies/7" for ::1 at 2019-05-28 16:05:33 -0400
+Processing by MoviesController#update as */*
+  Parameters: {"title"=>"Hamlet (Not Really)", "actor_id"=>"4", "id"=>"7", "movie"=>{"title"=>"Hamlet (Not Really)"}}
+  [1m[36mActor Load (0.4ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:47
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:51
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:31
+Completed 200 OK in 35ms (Views: 0.4ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/actors/4/movies/" for ::1 at 2019-05-28 16:05:36 -0400
+Processing by MoviesController#index as HTML
+  Parameters: {"actor_id"=>"4"}
+  [1m[36mActor Load (0.5ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:47
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1[0m  [["actor_id", 4]]
+  ↳ app/controllers/movies_controller.rb:8
+Completed 200 OK in 8ms (Views: 4.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/actors/4/movies/" for ::1 at 2019-05-28 16:05:40 -0400
+Processing by MoviesController#index as HTML
+  Parameters: {"actor_id"=>"4"}
+  [1m[36mActor Load (0.5ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:47
+  [1m[36mMovie Load (0.8ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1[0m  [["actor_id", 4]]
+  ↳ app/controllers/movies_controller.rb:8
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 1.3ms)
+
+
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mMovie Create (1.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Deadpool"], ["created_at", "2019-05-28 20:06:22.997271"], ["updated_at", "2019-05-28 20:06:22.997271"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Spiderman"], ["created_at", "2019-05-28 20:06:23.007976"], ["updated_at", "2019-05-28 20:06:23.007976"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:3
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Detective Pikachu"], ["created_at", "2019-05-28 20:06:23.012481"], ["updated_at", "2019-05-28 20:06:23.012481"]]
+  ↳ db/seeds.rb:3
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Another movie"], ["created_at", "2019-05-28 20:06:23.020821"], ["updated_at", "2019-05-28 20:06:23.020821"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:5
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Got bored of this"], ["created_at", "2019-05-28 20:06:23.026484"], ["updated_at", "2019-05-28 20:06:23.026484"]]
+  ↳ db/seeds.rb:5
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Six"], ["created_at", "2019-05-28 20:06:23.035008"], ["updated_at", "2019-05-28 20:06:23.035008"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mActor Create (0.6ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Stan Lee"], ["created_at", "2019-05-28 20:06:23.060765"], ["updated_at", "2019-05-28 20:06:23.060765"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (41.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mActor Create (0.5ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Super Cool Actor"], ["created_at", "2019-05-28 20:06:23.105364"], ["updated_at", "2019-05-28 20:06:23.105364"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mActor Create (0.5ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Sorta Alright Actor"], ["created_at", "2019-05-28 20:06:23.110951"], ["updated_at", "2019-05-28 20:06:23.110951"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mActor Create (0.5ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ryan Reynolds"], ["created_at", "2019-05-28 20:06:23.116514"], ["updated_at", "2019-05-28 20:06:23.116514"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mActor::HABTM_Movies Create (0.8ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 5], ["movie_id", 8]]
+  ↳ db/seeds.rb:13
+  [1m[36mActor::HABTM_Movies Create (0.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 5], ["movie_id", 9]]
+  ↳ db/seeds.rb:13
+  [1m[35m (41.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mActor::HABTM_Movies Create (0.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 6], ["movie_id", 10]]
+  ↳ db/seeds.rb:14
+  [1m[36mActor::HABTM_Movies Create (0.4ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 6], ["movie_id", 11]]
+  ↳ db/seeds.rb:14
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mActor::HABTM_Movies Create (0.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 7], ["movie_id", 12]]
+  ↳ db/seeds.rb:15
+  [1m[36mActor::HABTM_Movies Create (0.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 7], ["movie_id", 13]]
+  ↳ db/seeds.rb:15
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mActor::HABTM_Movies Create (0.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 8], ["movie_id", 8]]
+  ↳ db/seeds.rb:16
+  [1m[36mActor::HABTM_Movies Create (0.4ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 8], ["movie_id", 10]]
+  ↳ db/seeds.rb:16
+  [1m[36mActor::HABTM_Movies Create (0.4ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 8], ["movie_id", 13]]
+  ↳ db/seeds.rb:16
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+Started GET "/actors/4/movies/" for ::1 at 2019-05-28 16:10:05 -0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/student_ga124/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MoviesController#index as HTML
+  Parameters: {"actor_id"=>"4"}
+  [1m[36mActor Load (0.5ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:47
+  [1m[36mMovie Load (2.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1[0m  [["actor_id", 4]]
+  ↳ app/controllers/movies_controller.rb:8
+Completed 200 OK in 166ms (Views: 45.0ms | ActiveRecord: 14.1ms)
+
+
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mMovie Create (0.9ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Deadpool"], ["created_at", "2019-05-28 20:10:34.599044"], ["updated_at", "2019-05-28 20:10:34.599044"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMovie Create (0.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Spiderman"], ["created_at", "2019-05-28 20:10:34.605025"], ["updated_at", "2019-05-28 20:10:34.605025"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:3
+  [1m[36mMovie Create (0.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Detective Pikachu"], ["created_at", "2019-05-28 20:10:34.609590"], ["updated_at", "2019-05-28 20:10:34.609590"]]
+  ↳ db/seeds.rb:3
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mMovie Create (0.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Another movie"], ["created_at", "2019-05-28 20:10:34.614350"], ["updated_at", "2019-05-28 20:10:34.614350"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:5
+  [1m[36mMovie Create (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Got bored of this"], ["created_at", "2019-05-28 20:10:34.619031"], ["updated_at", "2019-05-28 20:10:34.619031"]]
+  ↳ db/seeds.rb:5
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mMovie Create (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Six"], ["created_at", "2019-05-28 20:10:34.623616"], ["updated_at", "2019-05-28 20:10:34.623616"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mActor Create (0.5ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Stan Lee"], ["created_at", "2019-05-28 20:10:34.641423"], ["updated_at", "2019-05-28 20:10:34.641423"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (31.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mActor Create (0.6ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Super Cool Actor"], ["created_at", "2019-05-28 20:10:34.675492"], ["updated_at", "2019-05-28 20:10:34.675492"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mActor Create (0.5ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Sorta Alright Actor"], ["created_at", "2019-05-28 20:10:34.679439"], ["updated_at", "2019-05-28 20:10:34.679439"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mActor Create (0.5ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ryan Reynolds"], ["created_at", "2019-05-28 20:10:34.683512"], ["updated_at", "2019-05-28 20:10:34.683512"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mActor::HABTM_Movies Create (0.8ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 9], ["movie_id", 14]]
+  ↳ db/seeds.rb:13
+  [1m[36mActor::HABTM_Movies Create (0.4ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 9], ["movie_id", 15]]
+  ↳ db/seeds.rb:13
+  [1m[35m (39.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mActor::HABTM_Movies Create (0.8ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 10], ["movie_id", 16]]
+  ↳ db/seeds.rb:14
+  [1m[36mActor::HABTM_Movies Create (0.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 10], ["movie_id", 17]]
+  ↳ db/seeds.rb:14
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mActor::HABTM_Movies Create (0.3ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 11], ["movie_id", 18]]
+  ↳ db/seeds.rb:15
+  [1m[36mActor::HABTM_Movies Create (0.3ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 11], ["movie_id", 19]]
+  ↳ db/seeds.rb:15
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mActor::HABTM_Movies Create (0.3ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 12], ["movie_id", 14]]
+  ↳ db/seeds.rb:16
+  [1m[36mActor::HABTM_Movies Create (0.3ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 12], ["movie_id", 16]]
+  ↳ db/seeds.rb:16
+  [1m[36mActor::HABTM_Movies Create (0.3ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 12], ["movie_id", 19]]
+  ↳ db/seeds.rb:16
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+Started GET "/actors/4/movies/" for ::1 at 2019-05-28 16:11:04 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/student_ga124/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MoviesController#index as HTML
+  Parameters: {"actor_id"=>"4"}
+  [1m[36mActor Load (0.6ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:47
+  [1m[36mMovie Load (1.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1[0m  [["actor_id", 4]]
+  ↳ app/controllers/movies_controller.rb:8
+Completed 200 OK in 156ms (Views: 37.7ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/actors/4/movies/2" for ::1 at 2019-05-28 16:11:11 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"actor_id"=>"4", "id"=>"2"}
+  [1m[36mActor Load (0.5ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:47
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:51
+  [1m[36mMovie Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1 AND "movies"."id" = $2 LIMIT $3[0m  [["actor_id", 4], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:13
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/actors/4/movies/1" for ::1 at 2019-05-28 16:11:14 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"actor_id"=>"4", "id"=>"1"}
+  [1m[36mActor Load (0.5ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:47
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:51
+  [1m[36mMovie Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1 AND "movies"."id" = $2 LIMIT $3[0m  [["actor_id", 4], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:13
+  [1m[36mActor Load (0.6ms)[0m  [1m[34mSELECT "actors".* FROM "actors" INNER JOIN "actors_movies" ON "actors"."id" = "actors_movies"."actor_id" WHERE "actors_movies"."movie_id" = $1[0m  [["movie_id", 1]]
+  ↳ app/controllers/movies_controller.rb:14
+Completed 200 OK in 14ms (Views: 6.2ms | ActiveRecord: 3.5ms)
+
+
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (304.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "movies_api_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (273.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "movies_api_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (571.3ms)[0m  [1m[35mCREATE DATABASE "movies_api_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (457.3ms)[0m  [1m[35mCREATE DATABASE "movies_api_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "actors" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (17.3ms)[0m  [1m[35mCREATE TABLE "actors" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "actors_movies" CASCADE[0m
+  ↳ db/schema.rb:24
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "actors_movies" ("actor_id" bigint NOT NULL, "movie_id" bigint NOT NULL)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE  INDEX  "index_actors_movies_on_actor_id_and_movie_id" ON "actors_movies"  ("actor_id", "movie_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_actors_movies_on_movie_id_and_actor_id" ON "actors_movies"  ("movie_id", "actor_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "movies" CASCADE[0m
+  ↳ db/schema.rb:31
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE TABLE "movies" ("id" bigserial primary key, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:31
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190528192549)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190528192534),
+(20190528192528);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-28 20:11:43.351441"], ["updated_at", "2019-05-28 20:11:43.351441"]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "actors" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (56.2ms)[0m  [1m[35mCREATE TABLE "actors" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "actors_movies" CASCADE[0m
+  ↳ db/schema.rb:24
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "actors_movies" ("actor_id" bigint NOT NULL, "movie_id" bigint NOT NULL)[0m
+  ↳ db/schema.rb:24
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE  INDEX  "index_actors_movies_on_actor_id_and_movie_id" ON "actors_movies"  ("actor_id", "movie_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE  INDEX  "index_actors_movies_on_movie_id_and_actor_id" ON "actors_movies"  ("movie_id", "actor_id")[0m
+  ↳ db/schema.rb:24
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "movies" CASCADE[0m
+  ↳ db/schema.rb:31
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "movies" ("id" bigserial primary key, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:31
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190528192549)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (3.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190528192534),
+(20190528192528);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-28 20:11:43.510754"], ["updated_at", "2019-05-28 20:11:43.510754"]]
+  ↳ db/schema.rb:13
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-05-28 20:11:43.517675"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mMovie Create (0.9ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Deadpool"], ["created_at", "2019-05-28 20:11:43.584544"], ["updated_at", "2019-05-28 20:11:43.584544"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (41.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Spiderman"], ["created_at", "2019-05-28 20:11:43.629249"], ["updated_at", "2019-05-28 20:11:43.629249"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:3
+  [1m[36mMovie Create (0.8ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Detective Pikachu"], ["created_at", "2019-05-28 20:11:43.634962"], ["updated_at", "2019-05-28 20:11:43.634962"]]
+  ↳ db/seeds.rb:3
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Another movie"], ["created_at", "2019-05-28 20:11:43.640814"], ["updated_at", "2019-05-28 20:11:43.640814"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:5
+  [1m[36mMovie Create (0.6ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Got bored of this"], ["created_at", "2019-05-28 20:11:43.646438"], ["updated_at", "2019-05-28 20:11:43.646438"]]
+  ↳ db/seeds.rb:5
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mMovie Create (0.6ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Six"], ["created_at", "2019-05-28 20:11:43.652464"], ["updated_at", "2019-05-28 20:11:43.652464"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mActor Create (1.3ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Stan Lee"], ["created_at", "2019-05-28 20:11:43.697247"], ["updated_at", "2019-05-28 20:11:43.697247"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mActor Create (0.5ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Super Cool Actor"], ["created_at", "2019-05-28 20:11:43.704085"], ["updated_at", "2019-05-28 20:11:43.704085"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mActor Create (0.7ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Sorta Alright Actor"], ["created_at", "2019-05-28 20:11:43.709621"], ["updated_at", "2019-05-28 20:11:43.709621"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mActor Create (0.8ms)[0m  [1m[32mINSERT INTO "actors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ryan Reynolds"], ["created_at", "2019-05-28 20:11:43.715746"], ["updated_at", "2019-05-28 20:11:43.715746"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mActor::HABTM_Movies Create (1.6ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 1], ["movie_id", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mActor::HABTM_Movies Create (0.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 1], ["movie_id", 2]]
+  ↳ db/seeds.rb:13
+  [1m[35m (26.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mActor::HABTM_Movies Create (0.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 2], ["movie_id", 3]]
+  ↳ db/seeds.rb:14
+  [1m[36mActor::HABTM_Movies Create (0.4ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 2], ["movie_id", 4]]
+  ↳ db/seeds.rb:14
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mActor::HABTM_Movies Create (0.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 3], ["movie_id", 5]]
+  ↳ db/seeds.rb:15
+  [1m[36mActor::HABTM_Movies Create (0.6ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 3], ["movie_id", 6]]
+  ↳ db/seeds.rb:15
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mActor::HABTM_Movies Create (0.5ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 4], ["movie_id", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mActor::HABTM_Movies Create (2.0ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 4], ["movie_id", 3]]
+  ↳ db/seeds.rb:16
+  [1m[36mActor::HABTM_Movies Create (0.4ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 4], ["movie_id", 6]]
+  ↳ db/seeds.rb:16
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+Started GET "/actors/4/movies/1" for ::1 at 2019-05-28 16:13:13 -0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/student_ga124/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by MoviesController#show as HTML
+  Parameters: {"actor_id"=>"4", "id"=>"1"}
+  [1m[36mActor Load (0.5ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:47
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:51
+  [1m[36mMovie Exists (46.4ms)[0m  [1m[34mSELECT  1 AS one FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1 AND "movies"."id" = $2 LIMIT $3[0m  [["actor_id", 4], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:13
+  [1m[36mActor Load (0.7ms)[0m  [1m[34mSELECT "actors".* FROM "actors" INNER JOIN "actors_movies" ON "actors"."id" = "actors_movies"."actor_id" WHERE "actors_movies"."movie_id" = $1[0m  [["movie_id", 1]]
+  ↳ app/controllers/movies_controller.rb:14
+Completed 200 OK in 204ms (Views: 7.0ms | ActiveRecord: 58.2ms)
+
+
+Started POST "/actors/4/movies/" for ::1 at 2019-05-28 16:13:58 -0400
+Processing by MoviesController#create as */*
+  Parameters: {"title"=>"Hamlet", "actor_id"=>"4", "movie"=>{"title"=>"Hamlet"}}
+  [1m[36mActor Load (0.3ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:47
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:22
+  [1m[36mMovie Create (0.8ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Hamlet"], ["created_at", "2019-05-28 20:13:58.075115"], ["updated_at", "2019-05-28 20:13:58.075115"]]
+  ↳ app/controllers/movies_controller.rb:22
+  [1m[35m (42.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:23
+  [1m[36mActor::HABTM_Movies Create (0.3ms)[0m  [1m[32mINSERT INTO "actors_movies" ("actor_id", "movie_id") VALUES ($1, $2)[0m  [["actor_id", 4], ["movie_id", 7]]
+  ↳ app/controllers/movies_controller.rb:23
+  [1m[35m (24.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:23
+Completed 201 Created in 89ms (Views: 0.8ms | ActiveRecord: 69.6ms)
+
+
+Started PUT "/actors/4/movies/7" for ::1 at 2019-05-28 16:14:17 -0400
+Processing by MoviesController#update as */*
+  Parameters: {"title"=>"Hamlet (Not Really)", "actor_id"=>"4", "id"=>"7", "movie"=>{"title"=>"Hamlet (Not Really)"}}
+  [1m[36mActor Load (0.4ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:47
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:51
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "title" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["title", "Hamlet (Not Really)"], ["updated_at", "2019-05-28 20:14:17.509729"], ["id", 7]]
+  ↳ app/controllers/movies_controller.rb:31
+  [1m[35m (40.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/movies_controller.rb:31
+Completed 200 OK in 47ms (Views: 0.4ms | ActiveRecord: 41.6ms)
+
+
+Started GET "/actors/4/movies/1" for ::1 at 2019-05-28 16:14:20 -0400
+Processing by MoviesController#show as HTML
+  Parameters: {"actor_id"=>"4", "id"=>"1"}
+  [1m[36mActor Load (0.3ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:47
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:51
+  [1m[36mMovie Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1 AND "movies"."id" = $2 LIMIT $3[0m  [["actor_id", 4], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:13
+  [1m[36mActor Load (0.4ms)[0m  [1m[34mSELECT "actors".* FROM "actors" INNER JOIN "actors_movies" ON "actors"."id" = "actors_movies"."actor_id" WHERE "actors_movies"."movie_id" = $1[0m  [["movie_id", 1]]
+  ↳ app/controllers/movies_controller.rb:14
+Completed 200 OK in 7ms (Views: 2.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/actors/4/movies/" for ::1 at 2019-05-28 16:14:23 -0400
+Processing by MoviesController#index as HTML
+  Parameters: {"actor_id"=>"4"}
+  [1m[36mActor Load (0.4ms)[0m  [1m[34mSELECT  "actors".* FROM "actors" WHERE "actors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:47
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "actors_movies" ON "movies"."id" = "actors_movies"."movie_id" WHERE "actors_movies"."actor_id" = $1[0m  [["actor_id", 4]]
+  ↳ app/controllers/movies_controller.rb:8
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.9ms)
+
+

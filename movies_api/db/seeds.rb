@@ -1,0 +1,16 @@
+movie1 = Movie.create(title: "Deadpool")
+movie2 = Movie.create(title: "Spiderman")
+movie3 = Movie.create(title: "Detective Pikachu")
+movie4 = Movie.create(title: "Another movie")
+movie5 = Movie.create(title: "Got bored of this")
+movie6 = Movie.create(title: "Six")
+
+actor1 = Actor.create(name: "Stan Lee")
+actor2 = Actor.create(name: "Super Cool Actor")
+actor3 = Actor.create(name: "Sorta Alright Actor")
+actor4 = Actor.create(name: "Ryan Reynolds")
+
+actor1.movies.push(movie1, movie2)
+actor2.movies.push(movie3, movie4)
+actor3.movies.push(movie5, movie6)
+actor4.movies.push(movie1, movie3, movie6)
