@@ -45,7 +45,7 @@ The simplest way is using the _has_and_belongs_to_many_ association. The _has_an
 ```
 rails g model Author name:string
 rails g model Book title:string
-rails g migration CreateJoinTableAuthorsBooks authors books <-- join talbe models must be in alphabetical order
+rails g migration CreateJoinTableAuthorsBooks authors books <-- join table models must be in alphabetical order
 ```
 > Note: Check the `db/migrate` folder after each step.
 
