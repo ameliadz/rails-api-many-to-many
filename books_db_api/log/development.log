@@ -1,0 +1,151 @@
+  [1m[35m (651.8ms)[0m  [1m[35mCREATE DATABASE "books_db_api_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (548.1ms)[0m  [1m[35mCREATE DATABASE "books_db_api_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (71.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (45.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4326348618365651220)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateAuthors (20190528174922)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (70.1ms)[0m  [1m[35mCREATE TABLE "authors" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190528174922_create_authors.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190528174922"]]
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateBooks (20190528174940)
+  [1m[35m (40.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (16.4ms)[0m  [1m[35mCREATE TABLE "books" ("id" bigserial primary key, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190528174940_create_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190528174940"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateJoinTableAuthorsBooks (20190528175007)
+  [1m[35m (40.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "authors_books" ("author_id" bigint NOT NULL, "book_id" bigint NOT NULL)[0m
+  ↳ db/migrate/20190528175007_create_join_table_authors_books.rb:3
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE  INDEX  "index_authors_books_on_author_id_and_book_id" ON "authors_books"  ("author_id", "book_id")[0m
+  ↳ db/migrate/20190528175007_create_join_table_authors_books.rb:3
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE  INDEX  "index_authors_books_on_book_id_and_author_id" ON "authors_books"  ("book_id", "author_id")[0m
+  ↳ db/migrate/20190528175007_create_join_table_authors_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190528175007"]]
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-28 17:50:35.502588"], ["updated_at", "2019-05-28 17:50:35.502588"]]
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4326348618365651220)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mBook Create (5.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "One"], ["created_at", "2019-05-28 17:54:28.523063"], ["updated_at", "2019-05-28 17:54:28.523063"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (38.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:2
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Two"], ["created_at", "2019-05-28 17:54:28.569872"], ["updated_at", "2019-05-28 17:54:28.569872"]]
+  ↳ db/seeds.rb:2
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:3
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Three"], ["created_at", "2019-05-28 17:54:28.575205"], ["updated_at", "2019-05-28 17:54:28.575205"]]
+  ↳ db/seeds.rb:3
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Four"], ["created_at", "2019-05-28 17:54:28.580543"], ["updated_at", "2019-05-28 17:54:28.580543"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:5
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Five"], ["created_at", "2019-05-28 17:54:28.585983"], ["updated_at", "2019-05-28 17:54:28.585983"]]
+  ↳ db/seeds.rb:5
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:6
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Six"], ["created_at", "2019-05-28 17:54:28.591730"], ["updated_at", "2019-05-28 17:54:28.591730"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mAuthor Create (16.8ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Tom Clancy"], ["created_at", "2019-05-28 17:54:28.618969"], ["updated_at", "2019-05-28 17:54:28.618969"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mAuthor Create (0.5ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Gillian Flynn"], ["created_at", "2019-05-28 17:54:28.641849"], ["updated_at", "2019-05-28 17:54:28.641849"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mAuthor Create (0.5ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Vince Flynn"], ["created_at", "2019-05-28 17:54:28.647195"], ["updated_at", "2019-05-28 17:54:28.647195"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mAuthor Create (0.5ms)[0m  [1m[32mINSERT INTO "authors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "William Shakespeare"], ["created_at", "2019-05-28 17:54:28.652822"], ["updated_at", "2019-05-28 17:54:28.652822"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mAuthor::HABTM_Books Create (48.4ms)[0m  [1m[32mINSERT INTO "authors_books" ("author_id", "book_id") VALUES ($1, $2)[0m  [["author_id", 1], ["book_id", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mAuthor::HABTM_Books Create (0.5ms)[0m  [1m[32mINSERT INTO "authors_books" ("author_id", "book_id") VALUES ($1, $2)[0m  [["author_id", 1], ["book_id", 2]]
+  ↳ db/seeds.rb:13
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mAuthor::HABTM_Books Create (0.5ms)[0m  [1m[32mINSERT INTO "authors_books" ("author_id", "book_id") VALUES ($1, $2)[0m  [["author_id", 2], ["book_id", 3]]
+  ↳ db/seeds.rb:14
+  [1m[36mAuthor::HABTM_Books Create (0.4ms)[0m  [1m[32mINSERT INTO "authors_books" ("author_id", "book_id") VALUES ($1, $2)[0m  [["author_id", 2], ["book_id", 4]]
+  ↳ db/seeds.rb:14
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mAuthor::HABTM_Books Create (0.5ms)[0m  [1m[32mINSERT INTO "authors_books" ("author_id", "book_id") VALUES ($1, $2)[0m  [["author_id", 3], ["book_id", 5]]
+  ↳ db/seeds.rb:15
+  [1m[36mAuthor::HABTM_Books Create (0.4ms)[0m  [1m[32mINSERT INTO "authors_books" ("author_id", "book_id") VALUES ($1, $2)[0m  [["author_id", 3], ["book_id", 6]]
+  ↳ db/seeds.rb:15
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mAuthor::HABTM_Books Create (0.5ms)[0m  [1m[32mINSERT INTO "authors_books" ("author_id", "book_id") VALUES ($1, $2)[0m  [["author_id", 4], ["book_id", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mAuthor::HABTM_Books Create (0.4ms)[0m  [1m[32mINSERT INTO "authors_books" ("author_id", "book_id") VALUES ($1, $2)[0m  [["author_id", 4], ["book_id", 3]]
+  ↳ db/seeds.rb:16
+  [1m[36mAuthor::HABTM_Books Create (0.4ms)[0m  [1m[32mINSERT INTO "authors_books" ("author_id", "book_id") VALUES ($1, $2)[0m  [["author_id", 4], ["book_id", 6]]
+  ↳ db/seeds.rb:16
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16

@@ -1,0 +1,16 @@
+book1 = Book.create(title: "One")
+book2 = Book.create(title: "Two")
+book3 = Book.create(title: "Three")
+book4 = Book.create(title: "Four")
+book5 = Book.create(title: "Five")
+book6 = Book.create(title: "Six")
+
+author1 = Author.create(name: "Tom Clancy")
+author2 = Author.create(name: "Gillian Flynn")
+author3 = Author.create(name: "Vince Flynn")
+author4 = Author.create(name: "William Shakespeare")
+
+author1.books.push(book1, book2)
+author2.books.push(book3, book4)
+author3.books.push(book5, book6)
+author4.books.push(book1, book3, book6)
