@@ -203,7 +203,7 @@ end
 ```
 
 ## Preventing CORS Issues
-When you build APIs will Rails, chances are you might encounter some Cross-Origin errors. This is because your Rails API is not equipped to accept POST, PUT or DELETE requests from sources (or "origins") other than itself. The [Rack Middleware for handlisg CORS](https://github.com/cyu/rack-cors) gem is a useful tool in tackling that problem. Add the following to your Gemfile:
+When you build APIs will Rails, chances are you might encounter some Cross-Origin errors. This is because your Rails API is not equipped to accept POST, PUT or DELETE requests from sources (or "origins") other than itself. The [Rack Middleware for handling CORS](https://github.com/cyu/rack-cors) gem is a useful tool in tackling that problem. Add the following to your Gemfile:
 
 ```
 gem 'rack-cors', :require => 'rack/cors'
